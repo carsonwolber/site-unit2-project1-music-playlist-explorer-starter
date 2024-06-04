@@ -10,17 +10,34 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <p>test</p>
     <header>
-        <!-- Your header content here -->
+        <h1 id="headtxt">Music Playlist Explorer</h1>
     </header>
 
     <main> 
-        <!-- Your main content here -->
+        <section class="playlist-cards">
+            <section class="temp-card">
+                <img id="temp-img" src="assets/img/playlist.png"/>
+                <h3 id="temp-title">Playlist Title </h3>
+                <p id="creator-name">Creator Name</p>
+                <p id="count">0</p>
+            </section>
+        </section>
     </main>
 
+    <section class="modal-overlay">
+        <section class="modal-content">
+            <button>close</button>
+            <h3>Playlist Title</h3>
+            <p>Creator Name</p>
+            <ul>
+                <li><div class="song">song here</div></li>
+            </ul>
+        </section>
+    </section>
     <footer>
         <!-- Your footer content here -->
+        <p>place</p>
     </footer>
     <script src="data/data.js"></script>
     <script src="script.js"></script>

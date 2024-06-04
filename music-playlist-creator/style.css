@@ -2,5 +2,56 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f8f8f8;
+    background-color: #21262d;
+}
+
+header {
+    background-color: #618ea8;
+    color: antiquewhite;
+    display: flex;
+
+}
+
+#headtxt {
+    margin-left: 15px;
+}
+
+footer {
+    background-color: #618ea8;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+
+.temp-card { 
+    width: 200px;
+    margin: 100px;
+    background-color: #618ea8;
+    color: antiquewhite;
+}
+
+#temp-img {
+    width: 200px;
+    padding: 0;
+}
+
+#temp-title, #creator-name, #count {
+    padding-left: 10px;
+}
+
+#count {
+    padding-bottom: 10px;
+}
+
+.modal-overlay {
+    /* visibility: hidden; */
+    background-color: whitesmoke;
+    border-radius: 20px ;
+    position: fixed;
+    width: 50%;
+    height: 50% ;
+    top: 50% ; 
+    left: 50% ; 
+    transform: translate(-50%, -50%);
 }
