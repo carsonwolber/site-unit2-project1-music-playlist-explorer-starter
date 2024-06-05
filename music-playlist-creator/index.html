@@ -27,17 +27,27 @@
 
     <section class="modal-overlay">
         <section class="modal-content">
-            <button>close</button>
-            <h3>Playlist Title</h3>
-            <p>Creator Name</p>
+            <img id="modal-album-img" src="assets/img/playlist.png">
+            <section id="playlist-info">
+                <h3 id="modal-playlist-title">Playlist Title</h3>
+                <p>Creator Name</p>
+            </section>
+            <button id="modal-close-btn">close</button>
             <ul>
-                <li><div class="song">song here</div></li>
+                <li><div class="song">
+                    <img id="modal-song-img" src="assets/img/song.png">
+                    <p id="song-title">Song title</p>
+                    <p id="song-artist">Artist Name</p>
+                    <p id="song-album">Album Name</p>
+                    <p id="song-runtime">0:00</p>
+                </div></li>
             </ul>
         </section>
     </section>
+
     <footer>
         <!-- Your footer content here -->
-        <p>place</p>
+        <p></p>
     </footer>
     <script src="data/data.js"></script>
     <script src="script.js"></script>

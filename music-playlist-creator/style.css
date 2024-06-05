@@ -55,3 +55,31 @@ footer {
     left: 50% ; 
     transform: translate(-50%, -50%);
 }
+
+.model-content {
+    position: relative;
+    padding: 20px;
+}
+
+#playlist-info{
+    margin: auto;
+    padding-top: 2%;
+    float: left ;
+}
+
+#modal-album-img {
+    width: 20%;
+    margin: 2%;
+    display: inline;
+    float: left;
+}
+
+#modal-song-img {
+    visibility: hidden;
+}
+
+#modal-close-btn {
+    position: absolute;
+    top: 10;
+    right: 10;
+}
