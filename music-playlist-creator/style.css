@@ -49,11 +49,13 @@ footer {
     background-color: whitesmoke;
     border-radius: 20px ;
     position: fixed;
+    display: flex;
     width: 50%;
     height: 50% ;
     top: 50% ; 
     left: 50% ; 
     transform: translate(-50%, -50%);
+    justify-content: center;
 }
 
 .model-content {
@@ -65,16 +67,13 @@ footer {
 #playlist-info{
     margin: auto;
     padding-top: 2%;
-    float: left ;
 }
 
 #modal-album-img {
     width: 20%;
     margin: 2%;
-    display: inline-block;
     float: left;
 }
-
 
 #modal-close-btn {
     position: absolute;
@@ -85,7 +84,6 @@ footer {
     color: white;
     border-radius: 5px;
     cursor: pointer;
-
 }
 
 ul {
@@ -95,7 +93,7 @@ ul {
     text-align: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center;;
 }
 
 li {
@@ -103,15 +101,20 @@ li {
     width: 100%;
 }
 
+.song-section {
+    display: flex;
+    max-width: 100%;
+}
 
 .song {
     display: flex; 
     align-items: center;
-    padding: 10px;
+    padding: 8px;
     background-color: aliceblue;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     width: 100%;
+    margin-top: 20%;
 }
 .song p {
     margin: 0;
