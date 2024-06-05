@@ -59,6 +59,7 @@ footer {
 .model-content {
     position: relative;
     padding: 20px;
+    overflow: hidden;
 }
 
 #playlist-info{
@@ -70,16 +71,57 @@ footer {
 #modal-album-img {
     width: 20%;
     margin: 2%;
-    display: inline;
+    display: inline-block;
     float: left;
 }
 
-#modal-song-img {
-    visibility: hidden;
-}
 
 #modal-close-btn {
     position: absolute;
-    top: 10;
-    right: 10;
+    top: 10px;
+    right: 10px;
+    padding: 5px 10px;
+    background-color: gray;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+li {
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+
+.song {
+    display: flex; 
+    align-items: center;
+    padding: 10px;
+    background-color: aliceblue;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+.song p {
+    margin: 0;
+    padding: 0 5px;
+    flex-grow: 1;
+}
+
+#modal-song-img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    border-radius: 5px;
 }
