@@ -9,7 +9,6 @@ header {
     background-color: #618ea8;
     color: antiquewhite;
     display: flex;
-
 }
 
 #headtxt {
@@ -23,20 +22,27 @@ footer {
     width: 100%;
 }
 
-
-.temp-card { 
-    width: 200px;
+.playlist-card { 
+    width: 17vw;
     margin: 100px;
     background-color: #618ea8;
     color: antiquewhite;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 3px solid #618ea8;
 }
 
-#temp-img {
-    width: 200px;
+.playlist-card:hover {
+    background-color: #7694a6;
+    border: 3px solid #7694a6;
+}
+
+#playlist-img {
+    width: 17vw;
     padding: 0;
+    display: flex;
 }
 
-#temp-title, #creator-name, #count {
+#playlisy-title, #creator-name, #count {
     padding-left: 10px;
 }
 
@@ -45,7 +51,7 @@ footer {
 }
 
 .modal-overlay {
-    /* visibility: hidden; */
+    visibility: hidden;
     background-color: whitesmoke;
     border-radius: 20px ;
     position: fixed;
@@ -59,7 +65,6 @@ footer {
 }
 
 .model-content {
-    position: relative;
     padding: 20px;
     overflow: hidden;
 }
@@ -88,8 +93,6 @@ footer {
 
 ul {
     list-style-type: none;
-    padding: 0;
-    margin: 0;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -97,8 +100,8 @@ ul {
 }
 
 li {
-    margin-bottom: 10px;
     width: 100%;
+    display: flex;
 }
 
 .song-section {
@@ -108,6 +111,7 @@ li {
 
 .song {
     display: flex; 
+    position: relative;
     align-items: center;
     padding: 8px;
     background-color: aliceblue;
@@ -123,8 +127,8 @@ li {
 }
 
 #modal-song-img {
-    width: 50px;
-    height: 50px;
-    margin-right: 10px;
+    width: 4vw;
+    height: 6vh;
+    /* margin-right: 10px; */
     border-radius: 5px;
 }
