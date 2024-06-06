@@ -22,9 +22,14 @@ footer {
     width: 100%;
 }
 
+#playlist-cards {
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
 .playlist-card { 
     width: 17vw;
-    margin: 100px;
+    margin: 50px;
     background-color: #618ea8;
     color: antiquewhite;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -42,7 +47,8 @@ footer {
     display: flex;
 }
 
-#playlisy-title, #creator-name, #count {
+
+#playlisy-title, #creator-name, #thumb {
     padding-left: 10px;
 }
 
@@ -131,4 +137,12 @@ li {
     height: 6vh;
     /* margin-right: 10px; */
     border-radius: 5px;
+}
+
+#likebtn {
+    z-index: auto ;
+}
+
+#likebtn:hover {
+    border: 10px solid black;
 }
