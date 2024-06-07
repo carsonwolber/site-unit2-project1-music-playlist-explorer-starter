@@ -1,53 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <title>Music Playlist Explorer</title>
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-    
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <header>
         <h1 id="headtxt">Music Playlist Explorer</h1>
     </header>
-
-    <main> 
-        <section id="playlist-cards">
-        </section>
+    <main>
+        <section id="playlist-cards"></section>
     </main>
-
-    <section class="modal-overlay">
+    <section class="modal-overlay" style="display: none;">
         <section class="modal-content">
-            <img id="modal-album-img" src="assets/img/playlist.png"/>
-            <input id="likebtn" type="image" src="assets/img/like.png"/>
+            <img id="modal-album-img" src="assets/img/playlist.png" />
             <section id="playlist-info">
                 <h3 id="modal-playlist-title">Playlist Title</h3>
                 <p>Creator Name</p>
             </section>
             <button id="modal-close-btn">close</button>
-            <section class = song-section> 
+            <section class="song-section">
                 <ul>
-                    <li><div class="song">
-                        <img id="modal-song-img" src="assets/img/song.png">
-                        <p id="song-title">Song title</p>
-                        <p id="song-artist">Artist Name</p>
-                        <p id="song-album">Album Name</p>
-                        <p id="song-runtime">0:00</p>
-                    </div></li>
+                    <!-- Songs will be populated here -->
                 </ul>
             </section>
         </section>
     </section>
-
     <footer>
-        <!-- Your footer content here -->
         <p></p>
     </footer>
     <script src="data/data.js"></script>
     <script src="script.js"></script>
 </body>
-</html>
 
+</html>
