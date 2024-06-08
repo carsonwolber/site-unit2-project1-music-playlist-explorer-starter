@@ -1,39 +1,142 @@
+features.css
+
 body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #21262d;
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #21262d;
 }
 
 header {
-    background-color: #618ea8;
-    color: antiquewhite;
-    display: flex;
+  background-color: #618ea8;
+  color: antiquewhite;
+  display: flex;
 }
 
 #headtxt {
-    margin-left: 15px;
+  margin-left: 15px;
 }
 
 footer {
-    background-color: #618ea8;
-    bottom: 0;
-    width: 100%;
-    height: 5vh;
-    position: fixed ;
+  background-color: #618ea8;
+  bottom: 0;
+  width: 100%;
+  height: 5vh;
+  position: fixed;
 }
 
-#featuredbtn{
-    display: block;
-    background-color: antiquewhite;
-    position: relative;
-    height: 5vh;
-    width: 8vw;
-    border: none;
-    cursor: pointer;
-    font-size: 12pt;
+#featuredbtn {
+  display: block;
+  background-color: antiquewhite;
+  position: relative;
+  height: 5vh;
+  width: 8vw;
+  border: none;
+  cursor: pointer;
+  font-size: 12pt;
 }
 
-#featuredbtn:hover{
-    color: #618ea8;
+#featuredbtn:hover {
+  color: #618ea8;
+}
+
+.featuredPlaylist {
+  display: flex;
+  flex-direction: column;
+  background-color: #526d7d;
+  color: antiquewhite;
+  padding: 10px;
+  width: 30%;
+  height: 50%;
+  margin: 4%;
+
+  float: left;
+}
+
+ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2%;
+  width: 50vw;
+  height: inherit;
+  background-color: #618ea8;
+  padding: 2%;
+  border-radius: 4px;
+}
+
+#feat-img {
+  width: 100%;
+}
+
+
+ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 15%;
+  width: 50vw;
+  height: inherit;
+  background-color: #618ea8;
+  padding: 2%;
+  border-radius: 4px;
+}
+
+li {
+  width: 100%;
+  display: block;
+  align-items: center;
+  background-color: aliceblue;
+  display: flex;
+  position: relative;
+  padding: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  height: 80%;
+  max-width: 40vw;
+  font-size: 8pt;
+  align-items: center;
+
+}
+
+li:nth-child(odd) {
+  background-color: white;
+}
+
+.song-section {
+  display: flex;
+  padding: 20px;
+  align-items: center;
+}
+
+#songtitle {
+  font-size: 10pt;
+  display: block;
+  margin: 0;
+}
+
+#song-duration {
+  text-align: right;
+  float: left;
+}
+
+#song-img {
+  width: 6vw;
+  height: 8vh;
+  float: left;
+  margin-right: 3%;
+}
+
+#song-album {
+  margin-left: 14%;
+}
+
+#song-artist {
+  float: left;
+}
+
+#duration {
+  text-align: right;
 }
