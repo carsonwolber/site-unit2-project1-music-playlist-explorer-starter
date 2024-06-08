@@ -3,36 +3,39 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 function playlistLoader() {
-    const playlistSet = document.getElementById('playlist-cards');
-    const bottomSet = document.getElementById('bottom-sections');
-    data.playlists.forEach(playlist => {
-        const playlistElement = createPlaylistCard(playlist);
-        const bottomElement = createBottomCard(playlist);
-        playlistSet.appendChild(playlistElement);
-        bottomSet.appendChild(bottomElement);
-        playlistElement.addEventListener('click', () => populateModal(playlist)); 
+  const playlistContainer = document.getElementById('playlist-cards');
+  data.playlists.forEach(playlist => {
+    const cardContainer = document.createElement('div');
+    cardContainer.className = 'playlist-card-container';
+    const playlistElement = createPlaylistCard(playlist);
+    const bottomElement = createBottomCard(playlist);
+    cardContainer.appendChild(playlistElement);
+    cardContainer.appendChild(bottomElement);
+    playlistContainer.appendChild(cardContainer);
+    playlistElement.addEventListener('click', () => populateModal(playlist));
   });
 }
 
+
 function createPlaylistCard(playlist) {
-    const div = document.createElement('div')
-    div.className = 'playlist-card'
-    div.innerHTML = `
+  const div = document.createElement('div')
+  div.className = 'playlist-card'
+  div.innerHTML = `
     <img id="playlist-img" src = ${playlist.playlist_art}/>
     <h3 id="playlist-title">${playlist.playlist_name}</h3> 
     <p id="playlist-name">${playlist.playlist_creator}</p>
     `;
-    return div;
+  return div;
 }
 
 function createBottomCard(playlist) {
-    const div = document.createElement('div')
-    div.className = 'bottom-section'
-    div.innerHTML = ` 
+  const div = document.createElement('div')
+  div.className = 'bottom-section'
+  div.innerHTML = ` 
     <img id="likebtn" src="assets/img/like.png" onclick="toggleLike(this)"/>
     <p id="count">${playlist.likeCount}</p>
-    `; 
-    return div;
+    `;
+  return div;
 }
 
 function toggleLike(likeBtn) {
@@ -70,8 +73,8 @@ function populateModal(playlist) {
       <img src="${song.cover_art}" id="song-img"/>
       <p id="songtitle" class="song-info" class="songbar">${song.title}</p>
       <p id="song-artist" class="song-info" class="songbar">${song.artist}</p>
-      <p id="duration" class="song-info">${song.duration}</p>
       <p class="song-info" id="song-album" class="songbar">${song.album}</p>
+      <p id="duration" class="song-info">${song.duration}</p>
     `;
     songList.appendChild(li);
   }
@@ -82,11 +85,11 @@ function populateModal(playlist) {
     modal.style.display = 'none';
   });
 
-  modal.querySelector('#shuffle-btn').addEventListener('click', () => { 
-     let songBlock = document.querySelector('ul');
-     for(let i = songBlock.children.length; i >= 0 ; i--){
-        songBlock.appendChild(songBlock.children[Math.random() * i | 0])
-     }
+  modal.querySelector('#shuffle-btn').addEventListener('click', () => {
+    let songBlock = document.querySelector('ul');
+    for (let i = songBlock.children.length; i >= 0; i--) {
+      songBlock.appendChild(songBlock.children[Math.random() * i | 0])
+    }
   })
 
   modal.addEventListener('click', (e) => {
@@ -95,7 +98,3 @@ function populateModal(playlist) {
     }
   });
 }
-
-
-
-
