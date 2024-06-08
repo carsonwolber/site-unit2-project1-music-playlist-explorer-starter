@@ -3,26 +3,36 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 function playlistLoader() {
-  const playlistSet = document.getElementById('playlist-cards');
-  data.playlists.forEach(playlist => {
-    const playlistElement = createPlaylistCard(playlist);
-    playlistSet.appendChild(playlistElement);
-    playlistElement.addEventListener('click', () => populateModal(playlist)); 
+    const playlistSet = document.getElementById('playlist-cards');
+    const bottomSet = document.getElementById('bottom-sections');
+    data.playlists.forEach(playlist => {
+        const playlistElement = createPlaylistCard(playlist);
+        const bottomElement = createBottomCard(playlist);
+        playlistSet.appendChild(playlistElement);
+        bottomSet.appendChild(bottomElement);
+        playlistElement.addEventListener('click', () => populateModal(playlist)); 
   });
 }
 
 function createPlaylistCard(playlist) {
-  const div = document.createElement('div')
-  div.className = 'playlist-card'
-  div.innerHTML = `
-  <img id="playlist-img" src = ${playlist.playlist_art}/>
-  <h3 id="playlist-title">${playlist.playlist_name}</h3> 
-  <p id="playlist-name">${playlist.playlist_creator}</p>
-  <img id="likebtn" src="assets/img/like.png" onclick="toggleLike(this)"/>
-  <p id="count">${playlist.likeCount}</p>
-  `;
-  div.addEventListener('click', () => console.log('clicked'))
-  return div;
+    const div = document.createElement('div')
+    div.className = 'playlist-card'
+    div.innerHTML = `
+    <img id="playlist-img" src = ${playlist.playlist_art}/>
+    <h3 id="playlist-title">${playlist.playlist_name}</h3> 
+    <p id="playlist-name">${playlist.playlist_creator}</p>
+    `;
+    return div;
+}
+
+function createBottomCard(playlist) {
+    const div = document.createElement('div')
+    div.className = 'bottom-section'
+    div.innerHTML = ` 
+    <img id="likebtn" src="assets/img/like.png" onclick="toggleLike(this)"/>
+    <p id="count">${playlist.likeCount}</p>
+    `; 
+    return div;
 }
 
 function toggleLike(likeBtn) {
@@ -49,7 +59,6 @@ function populateModal(playlist) {
   modal.querySelector('#modal-album-img').src = playlist.playlist_art;
   modal.querySelector('#modal-playlist-title').textContent = playlist.playlist_name;
   modal.querySelector('#playlist-info p').textContent = playlist.playlist_creator;
-
   const songList = modal.querySelector('.song-section ul');
   songList.innerHTML = '';
 
@@ -58,9 +67,11 @@ function populateModal(playlist) {
     const li = document.createElement('li');
     li.classList.add('song');
     li.innerHTML = `
-      <img src="${song.cover_art}" id="modal-song-img" />
-      <p>${song.title}</p>
-      <p>${song.artist}</p>
+      <img src="${song.cover_art}" id="song-img"/>
+      <p id="songtitle" class="song-info" class="songbar">${song.title}</p>
+      <p id="song-artist" class="song-info" class="songbar">${song.artist}</p>
+      <p id="duration" class="song-info">${song.duration}</p>
+      <p class="song-info" id="song-album" class="songbar">${song.album}</p>
     `;
     songList.appendChild(li);
   }
@@ -71,11 +82,20 @@ function populateModal(playlist) {
     modal.style.display = 'none';
   });
 
+  modal.querySelector('#shuffle-btn').addEventListener('click', () => { 
+     let songBlock = document.querySelector('ul');
+     for(let i = songBlock.children.length; i >= 0 ; i--){
+        songBlock.appendChild(songBlock.children[Math.random() * i | 0])
+     }
+  })
+
   modal.addEventListener('click', (e) => {
     if (e.target === modal) {
       modal.style.display = 'none';
     }
   });
 }
+
+
 
 

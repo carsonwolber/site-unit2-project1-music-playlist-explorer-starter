@@ -13,7 +13,10 @@
         <h1 id="headtxt">Music Playlist Explorer</h1>
     </header>
     <main>
-        <section id="playlist-cards"></section>
+        <div id="card">
+            <section id="playlist-cards"></section>
+            <section id="bottom-sections"></section>
+        </div>
     </main>
     <section class="modal-overlay" style="display: none;">
         <section class="modal-content">
@@ -22,16 +25,21 @@
                 <h3 id="modal-playlist-title">Playlist Title</h3>
                 <p>Creator Name</p>
             </section>
+            <button id="shuffle-btn">shuffle 🔀</button>
             <button id="modal-close-btn">close</button>
             <section class="song-section">
                 <ul>
-                    <!-- Songs will be populated here -->
                 </ul>
             </section>
         </section>
     </section>
     <footer>
-        <p></p>
+            <button id="featuredbtn">⬅️ Featured</button>
+            <script type="text/javascript">
+                document.getElementById("featuredbtn").onclick = function () {
+                    location.href = "home.html";
+                };
+            </script>
     </footer>
     <script src="data/data.js"></script>
     <script src="script.js"></script>

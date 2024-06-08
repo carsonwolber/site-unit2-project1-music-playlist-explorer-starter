@@ -15,18 +15,6 @@ header {
     margin-left: 15px;
 }
 
-footer {
-    background-color: #618ea8;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
-
-#playlist-cards {
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-}
-
 .playlist-card {
     width: 17vw;
     margin: 50px;
@@ -34,6 +22,21 @@ footer {
     color: antiquewhite;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border: 3px solid #618ea8;
+    cursor: pointer;
+}
+
+#bottom-sections, #playlist-cards {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+}
+
+.bottom-section {
+    width: 17vw;
+    margin: 50px;
+    background-color: #526d7d;
+    color: antiquewhite;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 3px solid #526d7d;
 }
 
 .playlist-card:hover {
@@ -64,6 +67,7 @@ footer {
     left: 50%;
     transform: translate(-50%, -50%);
     justify-content: center;
+    backdrop-filter: brightness(10%);
 }
 
 .modal-content {
@@ -73,7 +77,6 @@ footer {
 
 #playlist-info {
     margin: auto;
-    padding-top: 2%;
 }
 
 #modal-album-img {
@@ -87,64 +90,89 @@ footer {
     top: 10px;
     right: 10px;
     padding: 5px 10px;
-    background-color: gray;
-    color: white;
+    background-color: #618ea8;
+    color: antiquewhite;
     border-radius: 5px;
     cursor: pointer;
 }
 
 ul {
+
     list-style-type: none;
-    text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 20%;
+    margin-top: 15%;
     width: 50vw;
 }
 
 li {
     width: 100%;
-    display: flex;
+    display: block;
+    align-items: center;
 }
 
 .song-section {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     height: 100%;
     padding: 20px;
+    align-items: center;
 }
 
 .song {
-    display: flex;
-    align-items: center;
-    padding: 8px;
+    padding: 5px;
     background-color: aliceblue;
-    border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     width: 100%;
     max-width: 40vw;
     margin-right: 35%;
+    font-size: 8pt;
+    align-items: center;
+
 }
 
-.song p {
+#songtitle {
+    font-size: 10pt;
+    display: block;
     margin: 0;
-    padding: 0 5px;
-    flex-grow: 1;
 }
 
-#modal-song-img {
-    width: 4vw;
-    height: 6vh;
-    border-radius: 5px;
+
+#song-duration {
+    text-align: right;
+    float: left;
+}
+
+#song-img {
+    width: 6vw;
+    height: 8vh;
+    float: left;
+    margin-right: 3%;
+}
+
+#song-album {
+    margin-left: 14%
+}
+
+
+#song-artist {
+    float: left;
+}
+
+#duration { 
+    text-align: right;
 }
 
 #likebtn {
     display: inline-block;
     width: 10%;
     cursor: pointer;
+    padding: 10px;
+    transition: transform 0.1s;
+}
+
+#likebtn:hover{
+    transform: scale(1.5);
 }
 
 #likebtn:active {
@@ -156,6 +184,36 @@ li {
     text-align: center;
 }
 
-li:nth-child(even) {
-    background-color: aliceblue;
+li:nth-child(odd) {
+    background-color: white;
+}
+
+
+#shuffle-btn { 
+    background-color: #618ea8;
+    color: antiquewhite;
+    border-radius: 5px;
+}
+
+
+footer {
+    background-color: #618ea8;
+    bottom: 0;
+    width: 100%;
+    height: 5vh;
+}
+
+#featuredbtn{
+    display: block;
+    background-color: antiquewhite;
+    position: relative;
+    height: 5vh;
+    width: 8vw;
+    border: none;
+    cursor: pointer;
+    font-size: 12pt;
+}
+
+#featuredbtn:hover{
+    color: #618ea8;
 }
