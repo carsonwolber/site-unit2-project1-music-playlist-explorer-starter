@@ -48,7 +48,11 @@ Estimated time spent: 45 hours spent in total
 
 ### Walkthrough Video
 
-`TODO://` Add the embedded URL code to your animated app walkthrough below, `ADD_EMBEDDED_CODE_HERE`. Make sure the video actually renders and is playable when viewing this README. (🚫 Remove this paragraph after adding walkthrough video)
+
+
+https://github.com/carsonwolber/site-unit2-project1-music-playlist-explorer-starter/assets/118689146/fe1834a6-a9d0-4f00-8363-4d939097ea0d
+
+
 
 
 
@@ -56,20 +60,23 @@ Estimated time spent: 45 hours spent in total
 
 * Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in your weekly assignment did you feel unprepared to complete?
 
-Add your response here
+For the most part yes, working through the stretch features was a challenge since much of that wasn't covered in class. I began work on some other features like search and edit and didn't have the knowledge to 
+see those through. 
 
 * If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
   
-Add your response here
+My code could definitely be cleaner, I think a good amount of my CSS is redundent or could be simplified. I think using more divs initially would've made things easier. I lost many hours just trying to get formatting right. 
+I also think given more time I could've figured out the stretch features I failed to fully finish. 
+
 
 * Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
-Add your response here
+I'm happy with some of the smaller details of my project, like the transitions and effects on card buttons and subtle hover features, cursor pointers, etc. I think having these smaller things refined gives the project an overall clean response. Something I'm not happy with is that is that some of my features still aren't perfect when viewing from different screen sizes. It's good for the most part but the song elements don't fit perfectly on smaller screens. 
 
 ### Open-source libraries used
 
-- Add any links to open-source libraries used in your project.
+N/A
 
 ### Shout out
 
-Give a shout out to somebody from your cohort that especially helped you during your project. This can be a fellow peer, instructor, TA, mentor, etc.
+shout out to Eric Lin for helping me notice id typos on multiple occasions. 
