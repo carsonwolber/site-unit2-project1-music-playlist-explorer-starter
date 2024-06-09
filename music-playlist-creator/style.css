@@ -53,6 +53,7 @@ header {
     color: antiquewhite;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border: 3px solid #526d7d;
+    height: 8vh;
 }
 
 .playlist-card:hover {
@@ -72,7 +73,6 @@ header {
 }
 
 .modal-overlay {
-    display: none;
     background-color: whitesmoke;
     border-radius: 20px;
     position: fixed;
@@ -83,7 +83,6 @@ header {
     left: 50%;
     transform: translate(-50%, -50%);
     justify-content: center;
-    backdrop-filter: brightness(10%);
 }
 
 .modal-content {
@@ -116,16 +115,21 @@ ul {
     list-style-type: none;
     padding: 0;
     width: 100%;
+    max-width: 80vw;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-left: 15%;
+    max-height: 47vh;
+    overflow-y: auto;
+    margin-top: 8%;
 }
 
 li {
     width: 100%;
     align-items: center;
     padding: 10px 0;
+    height: auto;
 }
 
 
@@ -133,7 +137,6 @@ li {
 .song-section {
     padding: 20px;
     justify-content: left;
-    height: 100%;
 }
 
 .song {
@@ -151,6 +154,7 @@ li {
     height: 8vh;
     margin-right: 3%;
     float: left;
+    flex-shrink: 0;
 }
 
 
@@ -187,7 +191,7 @@ li {
 #count {
     display: inline-block;
     text-align: center;
-    margin-top: 10px;
+    margin-top: 20px;
     vertical-align: top;
 }
 
@@ -196,6 +200,20 @@ li {
 }
 
 #likebtn:active {
+    transform: scale(1.5);
+}
+
+#deletebtn {
+    display: inline-block;
+    width: 10%;
+    cursor: pointer;
+    padding: 10px;
+    transition: transform 0.1s;
+    justify-content: right;
+    margin-left: 55%;
+}
+
+#deletebtn:hover {
     transform: scale(1.5);
 }
 
@@ -217,10 +235,11 @@ footer {
     bottom: 0;
     width: 100%;
     height: 5vh;
+    margin: 0;
+    position: fixed;
 }
 
 #featuredbtn {
-    display: block;
     background-color: antiquewhite;
     position: relative;
     height: 5vh;
@@ -228,8 +247,77 @@ footer {
     border: none;
     cursor: pointer;
     font-size: 12pt;
+    margin-right: 20px;
+    display: inline;
+    float: left;
 }
 
-#featuredbtn:hover {
+#featuredbtn:hover, #addbtn:hover {
     color: #618ea8;
+}
+
+#addbtn {
+    position: relative;
+    background-color: antiquewhite;
+    height: 5vh;
+    width: 11vw;
+    border: none;
+    cursor: pointer;
+    font-size: 12pt;
+    margin: 0;
+    display: inline;
+    text-align: center;
+
+}
+
+
+#addForm { 
+    background-color: antiquewhite;
+    border-radius: 20px;
+    position: fixed;
+    width: 23vw;
+    height: 30vh;
+    top: 53%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow-y: auto;
+}
+
+#addclosebtn {
+    background-color: #618ea8;
+    border-radius: 5px;
+    cursor: pointer;;
+    color: aliceblue;
+    position: absolute;
+    padding: 5px 10px;
+    top: 10px;
+    right: 10px;
+}
+
+#image-form {
+    margin-top: 4%;
+    margin-left: 4%;
+}
+
+#name-form, #creator-form {
+    margin-top: 2%;
+    margin-left: 4%;
+}
+
+#playlistsubmitbtn {
+    background-color: #618ea8;
+    border-radius: 5px;
+    cursor: pointer;;
+    color: aliceblue;
+    position: absolute;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-top: 2%;
+    margin-left: 12%;
+}
+
+
+#addsongcontainer {
+    width: 15vw;
+    margin-left: 40%;
 }

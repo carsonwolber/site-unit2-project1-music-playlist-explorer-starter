@@ -9,40 +9,76 @@
 </head>
 
 <body>
-    <header>
-        <h1 id="headtxt">Music Playlist Explorer</h1>
-    </header>
-    <main>
-        <div id="card">
-            <section id="playlist-cards"></section>
-            <section id="bottom-sections"></section>
-        </div>
-    </main>
-    <section class="modal-overlay" style="display: none;">
-        <section class="modal-content">
-            <img id="modal-album-img" src="assets/img/playlist.png" />
-            <section id="playlist-info">
-                <h3 id="modal-playlist-title">Playlist Title</h3>
-                <p>Creator Name</p>
-            </section>
-            <button id="shuffle-btn">shuffle 🔀</button>
-            <button id="modal-close-btn">close</button>
-            <section class="song-section">
-                <ul>
-                </ul>
+    <div class="body">
+        <header>
+            <h1 id="headtxt">Music Playlist Explorer</h1>
+        </header>
+        <main>
+            <div id="card">
+                <section id="playlist-cards"></section>
+                <section id="bottom-sections"></section>
+            </div>
+        </main>
+        <section class="modal-overlay" style="display: none;">
+            <section class="modal-content">
+                <img id="modal-album-img" src="assets/img/playlist.png" />
+                <section id="playlist-info">
+                    <h3 id="modal-playlist-title">Playlist Title</h3>
+                    <p>Creator Name</p>
+                </section>
+                <button id="shuffle-btn">shuffle 🔀</button>
+                <button id="modal-close-btn">close</button>
+                <section class="song-section">
+                    <ul>
+                    </ul>
+                </section>
             </section>
         </section>
-    </section>
-    <footer>
-            <button id="featuredbtn">⬅️ Featured</button>
+        <div id="addForm" style="display: none;">
+            <button id="addclosebtn">close</button>
             <script type="text/javascript">
-                document.getElementById("featuredbtn").onclick = function () {
-                    location.href = "home.html";
-                };
+                document.getElementById("addclosebtn").onclick= function () {
+                    const modal = document.getElementById("addForm");
+                    modal.style.display = "none";
+                }
             </script>
-    </footer>
-    <script src="data/data.js"></script>
-    <script src="script.js"></script>
+            <form id="playlistForm">
+                <div id="image-form">
+                    <label for="playlistimage">Playlist Cover:</label>
+                    <input id="playlistimage" type="file" accept="image/png, image/jpg, image/jpeg"/>
+                </div>
+                <div id="name-form">
+                    <label for="playlist-name">Playlist Name:</label>
+                    <input type="text" id="playlist-name" name="playlist-name" required>
+                </div>
+                <div id="creator-form">
+                    <label for="playlist-creator-name">Creator:</label>
+                    <input type="text" id="playlist-creator-name" required>
+                </div>
+                <button type="submit" id="playlistsubmitbtn">Add Playlist</button>
+            </form>
+        </div>
+        <footer>
+                <button id="featuredbtn">⬅️ Featured</button>
+                <button id="addbtn">➕ Add New Playlist</button>
+                <script type="text/javascript">
+                    document.getElementById("featuredbtn").onclick = function () {
+                        location.href = "home.html";
+                    };
+                    let newForm = document.getElementById('addForm');
+                    document.getElementById('addbtn').onclick = function() {
+                        if(newForm.style.display == "block") {
+                            console.log('block');
+                        }
+                        newForm.style.display = "block";
+                    };
+                </script>
+
+        </footer>
+        <script src="data/data.js"></script>
+        <script src="script.js"></script>
+    </div>
 </body>
 
 </html>
+

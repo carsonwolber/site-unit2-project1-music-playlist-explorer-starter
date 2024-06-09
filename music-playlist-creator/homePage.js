@@ -36,8 +36,8 @@ function featureSongList(songs) {
       <img src="${currSong.cover_art}" id="song-img" alt="Song Art"/>
       <p id="songtitle" class="song-info songbar">${currSong.title}</p>
       <p id="song-artist" class="song-info songbar">${currSong.artist}</p>
-      <p id="duration" class="song-info">${currSong.duration}</p>
       <p class="song-info" id="song-album" class="songbar">${currSong.album}</p>
+      <p id="duration" class="song-info">${currSong.duration}</p>
     `;
     sList.appendChild(li);
   }

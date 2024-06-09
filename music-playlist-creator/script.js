@@ -1,6 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
   playlistLoader();
+  document.getElementById('playlistForm').addEventListener('submit', submitPlaylist);
 })
+
+let playlistIdTracker = 0;
 
 function playlistLoader() {
   const playlistContainer = document.getElementById('playlist-cards');
@@ -18,25 +21,57 @@ function playlistLoader() {
 
 
 function createPlaylistCard(playlist) {
-  const div = document.createElement('div')
-  div.className = 'playlist-card'
-  div.innerHTML = `
-    <img id="playlist-img" src = ${playlist.playlist_art}/>
-    <h3 id="playlist-title">${playlist.playlist_name}</h3> 
-    <p id="playlist-name">${playlist.playlist_creator}</p>
-    `;
-  return div;
+    playlistIdTracker++;
+    
+    const div = document.createElement('div');
+    div.className = 'playlist-card';
+    
+    const img = document.createElement('img');
+    img.id = "playlist-img";
+    
+    if (playlist.playlist_art !== '') {
+      img.src = playlist.playlist_art;
+    } else {
+      img.src = 'assets/img/playlist.png';
+    }
+    
+    div.appendChild(img);
+    
+    const title = document.createElement('h3');
+    title.className = "playlist-title";
+    title.textContent = playlist.playlist_name;
+    
+    div.appendChild(title);
+    
+    const creator = document.createElement('p');
+    creator.className = "playlist-creator"; 
+    creator.textContent = playlist.playlist_creator;
+    
+    div.appendChild(creator);
+    
+    return div;
 }
 
 function createBottomCard(playlist) {
-  const div = document.createElement('div')
-  div.className = 'bottom-section'
-  div.innerHTML = ` 
-    <img id="likebtn" src="assets/img/like.png" onclick="toggleLike(this)"/>
-    <p id="count">${playlist.likeCount}</p>
-    `;
-  return div;
-}
+    const div = document.createElement('div');
+    div.className = 'bottom-section';
+    
+    if (playlist.songs && playlist.songs.length > 0) {
+      div.innerHTML = `
+        <img id="likebtn" src="assets/img/like.png" onclick="toggleLike(this)"/>
+        <p id="count">${playlist.likeCount}</p>
+        <img id="deletebtn" src="assets/img/delete.png" onclick="deletePlaylist(this, ${playlist.playlistID})"/>
+      `;
+    } else {
+      div.innerHTML = `
+        <img id="likebtn" src="assets/img/like.png" onclick="toggleLike(this)"/>
+        <p id="count">${playlist.likeCount}</p>
+        <img id="deletebtn" src="assets/img/delete.png" onclick="deletePlaylist(this, ${playlist.playlistID})"/>
+      `;
+    }
+  
+    return div;
+  }
 
 function toggleLike(likeBtn) {
   const filledSrc = 'assets/img/likefill.png';
@@ -57,7 +92,6 @@ function toggleLike(likeBtn) {
 
 function populateModal(playlist) {
   const modal = document.querySelector('.modal-overlay');
-  const modalContent = modal.querySelector('.modal-content');
 
   modal.querySelector('#modal-album-img').src = playlist.playlist_art;
   modal.querySelector('#modal-playlist-title').textContent = playlist.playlist_name;
@@ -92,9 +126,48 @@ function populateModal(playlist) {
     }
   })
 
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
-      modal.style.display = 'none';
-    }
-  });
+}
+
+function submitPlaylist(event) {
+    event.preventDefault();
+    const modal = document.getElementById("addForm");
+    const imageFile = document.getElementById("playlistimage").files[0]; 
+    const title = document.getElementById("playlist-name").value;
+    const name = document.getElementById("playlist-creator-name").value;
+    playlistIdTracker++;
+    
+    const imageURL = imageFile ? URL.createObjectURL(imageFile) : 'assets/img/playlist.png'; 
+    const newPlaylist = {
+      playlistID: playlistIdTracker,
+      playlist_name: title,
+      playlist_creator: name,
+      playlist_art: imageURL, 
+      likeCount: 0,
+      songs: [] 
+    };
+
+    const playlists = document.getElementById("playlist-cards");
+    const cardContainer = document.createElement('div');
+    cardContainer.className = 'playlist-card-container';
+    const playlistElement = createPlaylistCard(newPlaylist);
+    const bottomElement = createBottomCard(newPlaylist);
+    cardContainer.appendChild(playlistElement);
+    cardContainer.appendChild(bottomElement);
+    playlists.appendChild(cardContainer);
+
+    cardContainer.addEventListener('click', () => populateModal(newPlaylist));
+
+    bottomElement.addEventListener('click', (event) => {
+      event.stopPropagation();
+    });
+
+    event.target.reset();
+    modal.style.display = "none";
+}
+
+
+function deletePlaylist(deleteBtn, playlistID) {
+    data.playlists = data.playlists.filter(playlist => playlist.playlistID !== playlistID);
+    const playlistCardContainer = deleteBtn.closest('.playlist-card-container');
+    playlistCardContainer.remove();
 }

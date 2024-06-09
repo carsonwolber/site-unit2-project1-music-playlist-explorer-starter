@@ -50,6 +50,10 @@ footer {
   float: left;
 }
 
+li:nth-child(odd) {
+    background-color: white;
+  }
+
 ul {
   list-style-type: none;
   display: flex;
@@ -57,65 +61,56 @@ ul {
   align-items: center;
   margin-top: 2%;
   width: 50vw;
-  height: inherit;
+  height: 70vh;
   background-color: #618ea8;
   padding: 2%;
   border-radius: 4px;
+  overflow-y: auto;
 }
 
+
 li {
-  width: 100%;
-  display: block;
-  align-items: center;
   background-color: aliceblue;
-  display: flex;
-  position: relative;
+  display: block;
   padding: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   width: 80%;
   height: 80%;
   max-width: 40vw;
-  font-size: 8pt;
-  align-items: center;
-
+  max-height: 12vh;
+  font-size: 10pt;
+  justify-content: left;
+  position: relative;
 }
 
-li:nth-child(odd) {
-  background-color: white;
-}
 
-.song-section {
-  display: flex;
-  padding: 20px;
-  align-items: center;
+#song-img {
+    display: flex;
+    width: 20%;
+    height: 10vh;
+    margin-right: 3%;
+    margin-top: 2%;
+    float: left;
 }
 
 #songtitle {
-  font-size: 10pt;
-  display: block;
-  margin: 0;
+    font-size: 12pt;
+    display: block;
+    margin: 0;
+    margin-top: 2%;
 }
 
-#song-duration {
-  text-align: right;
-  float: left;
-}
-
-#song-img {
-  width: 6vw;
-  height: 8vh;
-  float: left;
-  margin-right: 3%;
-}
-
-#song-album {
-  margin-left: 14%;
-}
-
+#song-album,
 #song-artist {
-  float: left;
+    font-size: 8pt;
+    margin: 0;
 }
 
 #duration {
-  text-align: right;
+    text-align: right;
+    width: 100%;
+    margin-right: 2%;
 }
+
+
+
